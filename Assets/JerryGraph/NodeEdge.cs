@@ -72,14 +72,25 @@ namespace Jerry
                 m_CalPosTmp1 += m_ConnectWidth * m_CalPosTmp2;
             }
             m_CalPosTmp1 += m_CalPosTmp2 / 2;
-            Vector3 startPos = new Vector3(start.x + m_CalPosTmp1, start.y + start.height, 0);
-            Vector3 endPos = new Vector3(end.x + end.width / 2, end.y, 0);
+            Vector3 startPos = new Vector3(start.x + m_CalPosTmp1, start.y + start.height, 0);//LowerCenter
+            Vector3 endPos = new Vector3(end.x + end.width / 2, end.y, 0);//UpperCenter
             Vector3 startTan = startPos + Vector3.up * 50;
             Vector3 endTan = endPos + Vector3.down * 50;
             m_EdgePosStart = startPos;
-            m_EdgePosEnd = new Vector3(end.x, end.y + end.height / 2, 0);
+            m_EdgePosEnd = new Vector3(end.x, end.y + end.height / 2, 0);//MiddleCenter
 
-            Handles.DrawBezier(startPos, endPos, startTan, endTan, Color.red, null, 3);
+            if (m_FromNode.m_Container.m_SelectNode == m_FromNode)
+            {
+                Handles.DrawBezier(startPos, endPos, startTan, endTan, Color.green, null, 3);
+            }
+            else if (m_ToNode.m_Container.m_SelectNode == m_ToNode)
+            {
+                Handles.DrawBezier(startPos, endPos, startTan, endTan, Color.yellow, null, 3);
+            }
+            else
+            {
+                Handles.DrawBezier(startPos, endPos, startTan, endTan, Color.white, null, 3);
+            }
         }
 
         /// <summary>

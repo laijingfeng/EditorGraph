@@ -38,18 +38,21 @@ namespace Jerry
         /// 最大子节点
         /// </summary>
         public int m_MaxChildren { get; set; }
-        public Rect m_DeleteButton;
+        //public Rect m_DeleteButton;
+        public Rect m_LinkButton;
 
         public NodeBase()
         {
-            m_DeleteButton = new Rect(90, 10, 10, 10);
+            //m_DeleteButton = new Rect(90, 90, 10, 10);
+            m_LinkButton = new Rect(0, 10, 10, 10);
             m_Children = new List<NodeBase>();
             m_Container = null;
         }
 
         public NodeBase(NodeContainer container)
         {
-            m_DeleteButton = new Rect(90, 90, 10, 10);
+            //m_DeleteButton = new Rect(90, 90, 10, 10);
+            m_LinkButton = new Rect(0, 90, 10, 10);
             m_Children = new List<NodeBase>();
             m_Container = container;
         }
@@ -60,7 +63,16 @@ namespace Jerry
         /// <param name="child"></param>
         /// <returns></returns>
         public abstract bool CheckChild(NodeBase child);
-        public abstract void OnGui();
+        
+        public virtual void OnGui()
+        {
+            Event e = Event.current;
+            if ((e.type == EventType.MouseDown & e.button == 0))
+            {
+                m_Container.m_SelectNode = this;
+            }
+        }
+
         /// <summary>
         /// 删除时
         /// </summary>

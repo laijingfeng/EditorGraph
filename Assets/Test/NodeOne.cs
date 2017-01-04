@@ -20,6 +20,7 @@ namespace Jerry
 
         public override void OnGui()
         {
+            base.OnGui();
             //EditorGUILayout.BeginHorizontal();
             //EditorGUILayout.LabelField("NodeOne");
             //EditorGUILayout.EndHorizontal();

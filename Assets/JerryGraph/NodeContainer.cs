@@ -26,6 +26,7 @@ namespace Jerry
         /// </summary>
         public List<NodeEdge> m_NodeEdges = new List<NodeEdge>();
         public NodeType m_SelectedNodeType;
+        public NodeBase m_SelectNode;
 
         public NodeContainer()
         {
