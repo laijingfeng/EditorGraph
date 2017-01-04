@@ -5,7 +5,7 @@ using UnityEditor;
 
 namespace Jerry
 {
-	public class ConditionContainer : NodeContainer
+	public class TestContainer : NodeContainer
 	{
         /// <summary>
         /// ½áµã
@@ -23,7 +23,7 @@ namespace Jerry
         /// </summary>
 		float maxYPosition = 0;
 
-		ConditionContainer()
+        TestContainer()
 		{
 			m_ConditionList = new List<NodeBase>();
 			minSize = new Vector2(800.0f, 500.0f);

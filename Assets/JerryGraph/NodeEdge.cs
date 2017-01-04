@@ -76,14 +76,8 @@ namespace Jerry
             Vector3 endPos = new Vector3(end.x + end.width / 2, end.y, 0);
             Vector3 startTan = startPos + Vector3.up * 50;
             Vector3 endTan = endPos + Vector3.down * 50;
-            Color shadowColor = new Color(0, 0, 0, 0.06f);
             m_EdgePosStart = startPos;
             m_EdgePosEnd = new Vector3(end.x, end.y + end.height / 2, 0);
-
-            for (int i = 0; i < 3; i++)
-            {
-                Handles.DrawBezier(startPos, endPos, startTan, endTan, shadowColor, null, (i + 1) * 5);
-            }
 
             Handles.DrawBezier(startPos, endPos, startTan, endTan, Color.red, null, 3);
         }
